@@ -26,10 +26,13 @@ const drawFn = async () => {
     method: 'POST',
     credentials: 'include'
   }).then((res) => res.json());
-
+  console.log('抽奖次数',scrore)
   if (draw.err_no !== 0) {
     return;
   }
   
   drawFn(); 
+  scrore+=1;
 };
+
+drawFn();
