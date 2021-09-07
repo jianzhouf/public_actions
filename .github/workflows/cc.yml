@@ -1,4 +1,4 @@
-name: JueJin_Helper
+name: cc
 
 on:
   workflow_dispatch:
