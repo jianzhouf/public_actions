@@ -26,7 +26,7 @@ const drawFn = async () => {
     method: 'POST',
     credentials: 'include'
   }).then((res) => res.json());
-  console.log('抽奖次数',score)
+  console.log('抽奖次数',score, '抽到了',draw.data.lottery_name)
   if (draw.err_no !== 0) {
     return;
   }
