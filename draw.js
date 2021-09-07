@@ -26,13 +26,13 @@ const drawFn = async () => {
     method: 'POST',
     credentials: 'include'
   }).then((res) => res.json());
-  console.log('抽奖次数',scrore)
+  console.log('抽奖次数',score)
   if (draw.err_no !== 0) {
     return;
   }
   
   drawFn(); 
-  scrore+=1;
+  score+=1;
 };
 
 drawFn();
