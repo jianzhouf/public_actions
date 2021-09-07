@@ -1,0 +1,30 @@
+name: JueJin_Helper
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - name: Run Project
+        env:
+          COOKIE: ${{ secrets.COOKIE }}
+          USER: ${{ secrets.USER }}
+          PASS: ${{ secrets.PASS }}
+          TO: ${{ secrets.TO }}
+        run: npm ci && node draw.js "${COOKIE}" "${USER}" "${PASS}" "${TO}"
